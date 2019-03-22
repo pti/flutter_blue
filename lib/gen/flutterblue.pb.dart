@@ -110,6 +110,7 @@ class ScanSettings extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = new $pb.BuilderInfo('ScanSettings')
     ..a<$core.int>(1, 'androidScanMode', $pb.PbFieldType.O3)
     ..pPS(2, 'serviceUuids')
+    ..pPS(3, 'addresses')
     ..hasRequiredFields = false
   ;
 
@@ -131,6 +132,8 @@ class ScanSettings extends $pb.GeneratedMessage {
   void clearAndroidScanMode() => clearField(1);
 
   $core.List<$core.String> get serviceUuids => $_getList(1);
+
+  $core.List<$core.String> get addresses => $_getList(2);
 }
 
 class ScanResult extends $pb.GeneratedMessage {

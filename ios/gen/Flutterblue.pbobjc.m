@@ -298,11 +298,13 @@ typedef struct ProtosAdvertisementData__storage_ {
 
 @dynamic androidScanMode;
 @dynamic serviceUuidsArray, serviceUuidsArray_Count;
+@dynamic addressesArray, addressesArray_Count;
 
 typedef struct ProtosScanSettings__storage_ {
   uint32_t _has_storage_[1];
   int32_t androidScanMode;
   NSMutableArray *serviceUuidsArray;
+  NSMutableArray *addressesArray;
 } ProtosScanSettings__storage_;
 
 // This method is threadsafe because it is initially called
@@ -326,6 +328,15 @@ typedef struct ProtosScanSettings__storage_ {
         .number = ProtosScanSettings_FieldNumber_ServiceUuidsArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(ProtosScanSettings__storage_, serviceUuidsArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "addressesArray",
+        .dataTypeSpecific.className = NULL,
+        .number = ProtosScanSettings_FieldNumber_AddressesArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(ProtosScanSettings__storage_, addressesArray),
         .flags = GPBFieldRepeated,
         .dataType = GPBDataTypeString,
       },

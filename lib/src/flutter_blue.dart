@@ -64,12 +64,13 @@ class FlutterBlue {
   Stream<ScanResult> scan({
     ScanMode scanMode = ScanMode.lowLatency,
     List<Guid> withServices = const [],
-    List<Guid> withDevices = const [],
+    List<String> withAddresses = const [],
     Duration timeout,
   }) async* {
     var settings = protos.ScanSettings.create()
       ..androidScanMode = scanMode.value
-      ..serviceUuids.addAll(withServices.map((g) => g.toString()).toList());
+      ..serviceUuids.addAll(withServices.map((g) => g.toString()).toList())
+      ..addresses.addAll(withAddresses);
     StreamSubscription subscription;
     StreamController controller;
     controller = new StreamController(

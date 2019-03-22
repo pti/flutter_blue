@@ -656,6 +656,11 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
             ScanFilter f = new ScanFilter.Builder().setServiceUuid(ParcelUuid.fromString(uuid)).build();
             filters.add(f);
         }
+
+        for(String deviceId: proto.getAddressesList()) {
+            filters.add(new ScanFilter.Builder().setDeviceAddress(deviceId).build());
+        }
+
         ScanSettings settings = new ScanSettings.Builder().setScanMode(scanMode).build();
         scanner.startScan(filters, settings, getScanCallback21());
     }
