@@ -42,6 +42,7 @@ message ScanSettings {
   int32 android_scan_mode = 1;
   repeated string service_uuids = 2;
   repeated string addresses = 3;
+  repeated int32 manufacturer_ids = 4;
 }
 
 message ScanResult {

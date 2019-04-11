@@ -111,6 +111,7 @@ class ScanSettings extends $pb.GeneratedMessage {
     ..a<$core.int>(1, 'androidScanMode', $pb.PbFieldType.O3)
     ..pPS(2, 'serviceUuids')
     ..pPS(3, 'addresses')
+    ..p<$core.int>(4, 'manufacturerIds', $pb.PbFieldType.P3)
     ..hasRequiredFields = false
   ;
 
@@ -134,6 +135,8 @@ class ScanSettings extends $pb.GeneratedMessage {
   $core.List<$core.String> get serviceUuids => $_getList(1);
 
   $core.List<$core.String> get addresses => $_getList(2);
+
+  $core.List<$core.int> get manufacturerIds => $_getList(3);
 }
 
 class ScanResult extends $pb.GeneratedMessage {

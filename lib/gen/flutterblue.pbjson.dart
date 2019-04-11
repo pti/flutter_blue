@@ -69,6 +69,7 @@ const ScanSettings$json = const {
     const {'1': 'android_scan_mode', '3': 1, '4': 1, '5': 5, '10': 'androidScanMode'},
     const {'1': 'service_uuids', '3': 2, '4': 3, '5': 9, '10': 'serviceUuids'},
     const {'1': 'addresses', '3': 3, '4': 3, '5': 9, '10': 'addresses'},
+    const {'1': 'manufacturer_ids', '3': 4, '4': 3, '5': 5, '10': 'manufacturerIds'},
   ],
 };
 

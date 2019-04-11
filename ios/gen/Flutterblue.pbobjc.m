@@ -299,12 +299,14 @@ typedef struct ProtosAdvertisementData__storage_ {
 @dynamic androidScanMode;
 @dynamic serviceUuidsArray, serviceUuidsArray_Count;
 @dynamic addressesArray, addressesArray_Count;
+@dynamic manufacturerIdsArray, manufacturerIdsArray_Count;
 
 typedef struct ProtosScanSettings__storage_ {
   uint32_t _has_storage_[1];
   int32_t androidScanMode;
   NSMutableArray *serviceUuidsArray;
   NSMutableArray *addressesArray;
+  GPBInt32Array *manufacturerIdsArray;
 } ProtosScanSettings__storage_;
 
 // This method is threadsafe because it is initially called
@@ -339,6 +341,15 @@ typedef struct ProtosScanSettings__storage_ {
         .offset = (uint32_t)offsetof(ProtosScanSettings__storage_, addressesArray),
         .flags = GPBFieldRepeated,
         .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "manufacturerIdsArray",
+        .dataTypeSpecific.className = NULL,
+        .number = ProtosScanSettings_FieldNumber_ManufacturerIdsArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(ProtosScanSettings__storage_, manufacturerIdsArray),
+        .flags = (GPBFieldFlags)(GPBFieldRepeated | GPBFieldPacked),
+        .dataType = GPBDataTypeInt32,
       },
     };
     GPBDescriptor *localDescriptor =
