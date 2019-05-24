@@ -849,7 +849,10 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
                 }
                 Protos.ReadDescriptorResponse.Builder p = Protos.ReadDescriptorResponse.newBuilder();
                 p.setRequest(q);
-                p.setValue(ByteString.copyFrom(descriptor.getValue()));
+
+                byte[] value = descriptor.getValue();
+                p.setValue(ByteString.copyFrom(value == null ? new byte[0] : value));
+
                 descriptorReadSink.success(p.build().toByteArray());
             }
 
