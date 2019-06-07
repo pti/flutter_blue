@@ -112,6 +112,7 @@ class ScanSettings extends $pb.GeneratedMessage {
     ..pPS(2, 'serviceUuids')
     ..pPS(3, 'addresses')
     ..p<$core.int>(4, 'manufacturerIds', $pb.PbFieldType.P3)
+    ..aOB(5, 'allowDuplicates')
     ..hasRequiredFields = false
   ;
 
@@ -137,6 +138,11 @@ class ScanSettings extends $pb.GeneratedMessage {
   $core.List<$core.String> get addresses => $_getList(2);
 
   $core.List<$core.int> get manufacturerIds => $_getList(3);
+
+  $core.bool get allowDuplicates => $_get(4, false);
+  set allowDuplicates($core.bool v) { $_setBool(4, v); }
+  $core.bool hasAllowDuplicates() => $_has(4);
+  void clearAllowDuplicates() => clearField(5);
 }
 
 class ScanResult extends $pb.GeneratedMessage {

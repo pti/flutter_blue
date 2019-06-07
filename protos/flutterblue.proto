@@ -43,6 +43,7 @@ message ScanSettings {
   repeated string service_uuids = 2;
   repeated string addresses = 3;
   repeated int32 manufacturer_ids = 4;
+  bool allow_duplicates = 5; // Default value is false, iOS only.
 }
 
 message ScanResult {

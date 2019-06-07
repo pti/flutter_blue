@@ -64,19 +64,22 @@ class FlutterBlue {
   Future setUniqueId(String uniqueid) => _channel.invokeMethod('setUniqueId',uniqueid.toString());
   
   /// Starts a scan for Bluetooth Low Energy devices
-  /// Timeout closes the stream after a specified [Duration]
+  /// Timeout closes the stream after a specified [Duration].
+  /// [allowDuplicates] is only used on iOS.
   Stream<ScanResult> scan({
     ScanMode scanMode = ScanMode.lowLatency,
     List<Guid> withServices = const [],
     List<String> withAddresses = const [],
     List<int> withManufacturerIds = const [],
     Duration timeout,
+    bool allowDuplicates = false
   }) async* {
     var settings = protos.ScanSettings.create()
       ..androidScanMode = scanMode.value
       ..serviceUuids.addAll(withServices.map((g) => g.toString()).toList())
       ..addresses.addAll(withAddresses)
-      ..manufacturerIds.addAll(withManufacturerIds);
+      ..manufacturerIds.addAll(withManufacturerIds)
+      ..allowDuplicates = allowDuplicates;
     StreamSubscription subscription;
     StreamController controller;
     controller = new StreamController(
