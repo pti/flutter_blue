@@ -1,11 +1,11 @@
 ///
 //  Generated code. Do not modify.
 //  source: flutterblue.proto
-///
-// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import
+//
+// @dart = 2.3
+// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
-// ignore: UNUSED_SHOWN_NAME
-import 'dart:core' as $core show int, bool, double, String, List, Map, override;
+import 'dart:core' as $core show bool, Deprecated, double, int, List, Map, override, pragma, String;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
@@ -14,20 +14,22 @@ import 'flutterblue.pbenum.dart';
 export 'flutterblue.pbenum.dart';
 
 class Int32Value extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('Int32Value')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Int32Value')
     ..a<$core.int>(1, 'value', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  Int32Value() : super();
-  Int32Value.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  Int32Value.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  Int32Value clone() => new Int32Value()..mergeFromMessage(this);
+  Int32Value._() : super();
+  factory Int32Value() => create();
+  factory Int32Value.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Int32Value.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  Int32Value clone() => Int32Value()..mergeFromMessage(this);
   Int32Value copyWith(void Function(Int32Value) updates) => super.copyWith((message) => updates(message as Int32Value));
   $pb.BuilderInfo get info_ => _i;
-  static Int32Value create() => new Int32Value();
+  @$core.pragma('dart2js:noInline')
+  static Int32Value create() => Int32Value._();
   Int32Value createEmptyInstance() => create();
-  static $pb.PbList<Int32Value> createRepeated() => new $pb.PbList<Int32Value>();
+  static $pb.PbList<Int32Value> createRepeated() => $pb.PbList<Int32Value>();
   static Int32Value getDefault() => _defaultInstance ??= create()..freeze();
   static Int32Value _defaultInstance;
 
@@ -38,20 +40,22 @@ class Int32Value extends $pb.GeneratedMessage {
 }
 
 class BluetoothState extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('BluetoothState')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('BluetoothState')
     ..e<BluetoothState_State>(1, 'state', $pb.PbFieldType.OE, BluetoothState_State.UNKNOWN, BluetoothState_State.valueOf, BluetoothState_State.values)
     ..hasRequiredFields = false
   ;
 
-  BluetoothState() : super();
-  BluetoothState.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  BluetoothState.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  BluetoothState clone() => new BluetoothState()..mergeFromMessage(this);
+  BluetoothState._() : super();
+  factory BluetoothState() => create();
+  factory BluetoothState.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BluetoothState.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  BluetoothState clone() => BluetoothState()..mergeFromMessage(this);
   BluetoothState copyWith(void Function(BluetoothState) updates) => super.copyWith((message) => updates(message as BluetoothState));
   $pb.BuilderInfo get info_ => _i;
-  static BluetoothState create() => new BluetoothState();
+  @$core.pragma('dart2js:noInline')
+  static BluetoothState create() => BluetoothState._();
   BluetoothState createEmptyInstance() => create();
-  static $pb.PbList<BluetoothState> createRepeated() => new $pb.PbList<BluetoothState>();
+  static $pb.PbList<BluetoothState> createRepeated() => $pb.PbList<BluetoothState>();
   static BluetoothState getDefault() => _defaultInstance ??= create()..freeze();
   static BluetoothState _defaultInstance;
 
@@ -62,7 +66,7 @@ class BluetoothState extends $pb.GeneratedMessage {
 }
 
 class AdvertisementData extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('AdvertisementData')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('AdvertisementData')
     ..aOS(1, 'localName')
     ..a<Int32Value>(2, 'txPowerLevel', $pb.PbFieldType.OM, Int32Value.getDefault, Int32Value.create)
     ..aOB(3, 'connectable')
@@ -72,15 +76,17 @@ class AdvertisementData extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  AdvertisementData() : super();
-  AdvertisementData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  AdvertisementData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  AdvertisementData clone() => new AdvertisementData()..mergeFromMessage(this);
+  AdvertisementData._() : super();
+  factory AdvertisementData() => create();
+  factory AdvertisementData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory AdvertisementData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  AdvertisementData clone() => AdvertisementData()..mergeFromMessage(this);
   AdvertisementData copyWith(void Function(AdvertisementData) updates) => super.copyWith((message) => updates(message as AdvertisementData));
   $pb.BuilderInfo get info_ => _i;
-  static AdvertisementData create() => new AdvertisementData();
+  @$core.pragma('dart2js:noInline')
+  static AdvertisementData create() => AdvertisementData._();
   AdvertisementData createEmptyInstance() => create();
-  static $pb.PbList<AdvertisementData> createRepeated() => new $pb.PbList<AdvertisementData>();
+  static $pb.PbList<AdvertisementData> createRepeated() => $pb.PbList<AdvertisementData>();
   static AdvertisementData getDefault() => _defaultInstance ??= create()..freeze();
   static AdvertisementData _defaultInstance;
 
@@ -107,7 +113,7 @@ class AdvertisementData extends $pb.GeneratedMessage {
 }
 
 class ScanSettings extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('ScanSettings')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ScanSettings')
     ..a<$core.int>(1, 'androidScanMode', $pb.PbFieldType.O3)
     ..pPS(2, 'serviceUuids')
     ..pPS(3, 'addresses')
@@ -116,15 +122,17 @@ class ScanSettings extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  ScanSettings() : super();
-  ScanSettings.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  ScanSettings.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  ScanSettings clone() => new ScanSettings()..mergeFromMessage(this);
+  ScanSettings._() : super();
+  factory ScanSettings() => create();
+  factory ScanSettings.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ScanSettings.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  ScanSettings clone() => ScanSettings()..mergeFromMessage(this);
   ScanSettings copyWith(void Function(ScanSettings) updates) => super.copyWith((message) => updates(message as ScanSettings));
   $pb.BuilderInfo get info_ => _i;
-  static ScanSettings create() => new ScanSettings();
+  @$core.pragma('dart2js:noInline')
+  static ScanSettings create() => ScanSettings._();
   ScanSettings createEmptyInstance() => create();
-  static $pb.PbList<ScanSettings> createRepeated() => new $pb.PbList<ScanSettings>();
+  static $pb.PbList<ScanSettings> createRepeated() => $pb.PbList<ScanSettings>();
   static ScanSettings getDefault() => _defaultInstance ??= create()..freeze();
   static ScanSettings _defaultInstance;
 
@@ -146,22 +154,24 @@ class ScanSettings extends $pb.GeneratedMessage {
 }
 
 class ScanResult extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('ScanResult')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ScanResult')
     ..a<BluetoothDevice>(1, 'device', $pb.PbFieldType.OM, BluetoothDevice.getDefault, BluetoothDevice.create)
     ..a<AdvertisementData>(2, 'advertisementData', $pb.PbFieldType.OM, AdvertisementData.getDefault, AdvertisementData.create)
     ..a<$core.int>(3, 'rssi', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
-  ScanResult() : super();
-  ScanResult.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  ScanResult.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  ScanResult clone() => new ScanResult()..mergeFromMessage(this);
+  ScanResult._() : super();
+  factory ScanResult() => create();
+  factory ScanResult.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ScanResult.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  ScanResult clone() => ScanResult()..mergeFromMessage(this);
   ScanResult copyWith(void Function(ScanResult) updates) => super.copyWith((message) => updates(message as ScanResult));
   $pb.BuilderInfo get info_ => _i;
-  static ScanResult create() => new ScanResult();
+  @$core.pragma('dart2js:noInline')
+  static ScanResult create() => ScanResult._();
   ScanResult createEmptyInstance() => create();
-  static $pb.PbList<ScanResult> createRepeated() => new $pb.PbList<ScanResult>();
+  static $pb.PbList<ScanResult> createRepeated() => $pb.PbList<ScanResult>();
   static ScanResult getDefault() => _defaultInstance ??= create()..freeze();
   static ScanResult _defaultInstance;
 
@@ -182,21 +192,23 @@ class ScanResult extends $pb.GeneratedMessage {
 }
 
 class ConnectRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('ConnectRequest')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ConnectRequest')
     ..aOS(1, 'remoteId')
     ..aOB(2, 'androidAutoConnect')
     ..hasRequiredFields = false
   ;
 
-  ConnectRequest() : super();
-  ConnectRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  ConnectRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  ConnectRequest clone() => new ConnectRequest()..mergeFromMessage(this);
+  ConnectRequest._() : super();
+  factory ConnectRequest() => create();
+  factory ConnectRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ConnectRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  ConnectRequest clone() => ConnectRequest()..mergeFromMessage(this);
   ConnectRequest copyWith(void Function(ConnectRequest) updates) => super.copyWith((message) => updates(message as ConnectRequest));
   $pb.BuilderInfo get info_ => _i;
-  static ConnectRequest create() => new ConnectRequest();
+  @$core.pragma('dart2js:noInline')
+  static ConnectRequest create() => ConnectRequest._();
   ConnectRequest createEmptyInstance() => create();
-  static $pb.PbList<ConnectRequest> createRepeated() => new $pb.PbList<ConnectRequest>();
+  static $pb.PbList<ConnectRequest> createRepeated() => $pb.PbList<ConnectRequest>();
   static ConnectRequest getDefault() => _defaultInstance ??= create()..freeze();
   static ConnectRequest _defaultInstance;
 
@@ -212,22 +224,24 @@ class ConnectRequest extends $pb.GeneratedMessage {
 }
 
 class BluetoothDevice extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('BluetoothDevice')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('BluetoothDevice')
     ..aOS(1, 'remoteId')
     ..aOS(2, 'name')
     ..e<BluetoothDevice_Type>(3, 'type', $pb.PbFieldType.OE, BluetoothDevice_Type.UNKNOWN, BluetoothDevice_Type.valueOf, BluetoothDevice_Type.values)
     ..hasRequiredFields = false
   ;
 
-  BluetoothDevice() : super();
-  BluetoothDevice.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  BluetoothDevice.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  BluetoothDevice clone() => new BluetoothDevice()..mergeFromMessage(this);
+  BluetoothDevice._() : super();
+  factory BluetoothDevice() => create();
+  factory BluetoothDevice.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BluetoothDevice.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  BluetoothDevice clone() => BluetoothDevice()..mergeFromMessage(this);
   BluetoothDevice copyWith(void Function(BluetoothDevice) updates) => super.copyWith((message) => updates(message as BluetoothDevice));
   $pb.BuilderInfo get info_ => _i;
-  static BluetoothDevice create() => new BluetoothDevice();
+  @$core.pragma('dart2js:noInline')
+  static BluetoothDevice create() => BluetoothDevice._();
   BluetoothDevice createEmptyInstance() => create();
-  static $pb.PbList<BluetoothDevice> createRepeated() => new $pb.PbList<BluetoothDevice>();
+  static $pb.PbList<BluetoothDevice> createRepeated() => $pb.PbList<BluetoothDevice>();
   static BluetoothDevice getDefault() => _defaultInstance ??= create()..freeze();
   static BluetoothDevice _defaultInstance;
 
@@ -248,7 +262,7 @@ class BluetoothDevice extends $pb.GeneratedMessage {
 }
 
 class BluetoothService extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('BluetoothService')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('BluetoothService')
     ..aOS(1, 'uuid')
     ..aOS(2, 'remoteId')
     ..aOB(3, 'isPrimary')
@@ -257,15 +271,17 @@ class BluetoothService extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  BluetoothService() : super();
-  BluetoothService.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  BluetoothService.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  BluetoothService clone() => new BluetoothService()..mergeFromMessage(this);
+  BluetoothService._() : super();
+  factory BluetoothService() => create();
+  factory BluetoothService.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BluetoothService.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  BluetoothService clone() => BluetoothService()..mergeFromMessage(this);
   BluetoothService copyWith(void Function(BluetoothService) updates) => super.copyWith((message) => updates(message as BluetoothService));
   $pb.BuilderInfo get info_ => _i;
-  static BluetoothService create() => new BluetoothService();
+  @$core.pragma('dart2js:noInline')
+  static BluetoothService create() => BluetoothService._();
   BluetoothService createEmptyInstance() => create();
-  static $pb.PbList<BluetoothService> createRepeated() => new $pb.PbList<BluetoothService>();
+  static $pb.PbList<BluetoothService> createRepeated() => $pb.PbList<BluetoothService>();
   static BluetoothService getDefault() => _defaultInstance ??= create()..freeze();
   static BluetoothService _defaultInstance;
 
@@ -290,7 +306,7 @@ class BluetoothService extends $pb.GeneratedMessage {
 }
 
 class BluetoothCharacteristic extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('BluetoothCharacteristic')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('BluetoothCharacteristic')
     ..aOS(1, 'uuid')
     ..aOS(2, 'serviceUuid')
     ..aOS(3, 'secondaryServiceUuid')
@@ -300,15 +316,17 @@ class BluetoothCharacteristic extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  BluetoothCharacteristic() : super();
-  BluetoothCharacteristic.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  BluetoothCharacteristic.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  BluetoothCharacteristic clone() => new BluetoothCharacteristic()..mergeFromMessage(this);
+  BluetoothCharacteristic._() : super();
+  factory BluetoothCharacteristic() => create();
+  factory BluetoothCharacteristic.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BluetoothCharacteristic.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  BluetoothCharacteristic clone() => BluetoothCharacteristic()..mergeFromMessage(this);
   BluetoothCharacteristic copyWith(void Function(BluetoothCharacteristic) updates) => super.copyWith((message) => updates(message as BluetoothCharacteristic));
   $pb.BuilderInfo get info_ => _i;
-  static BluetoothCharacteristic create() => new BluetoothCharacteristic();
+  @$core.pragma('dart2js:noInline')
+  static BluetoothCharacteristic create() => BluetoothCharacteristic._();
   BluetoothCharacteristic createEmptyInstance() => create();
-  static $pb.PbList<BluetoothCharacteristic> createRepeated() => new $pb.PbList<BluetoothCharacteristic>();
+  static $pb.PbList<BluetoothCharacteristic> createRepeated() => $pb.PbList<BluetoothCharacteristic>();
   static BluetoothCharacteristic getDefault() => _defaultInstance ??= create()..freeze();
   static BluetoothCharacteristic _defaultInstance;
 
@@ -341,7 +359,7 @@ class BluetoothCharacteristic extends $pb.GeneratedMessage {
 }
 
 class BluetoothDescriptor extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('BluetoothDescriptor')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('BluetoothDescriptor')
     ..aOS(1, 'uuid')
     ..aOS(2, 'serviceUuid')
     ..aOS(3, 'characteristicUuid')
@@ -349,15 +367,17 @@ class BluetoothDescriptor extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  BluetoothDescriptor() : super();
-  BluetoothDescriptor.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  BluetoothDescriptor.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  BluetoothDescriptor clone() => new BluetoothDescriptor()..mergeFromMessage(this);
+  BluetoothDescriptor._() : super();
+  factory BluetoothDescriptor() => create();
+  factory BluetoothDescriptor.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BluetoothDescriptor.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  BluetoothDescriptor clone() => BluetoothDescriptor()..mergeFromMessage(this);
   BluetoothDescriptor copyWith(void Function(BluetoothDescriptor) updates) => super.copyWith((message) => updates(message as BluetoothDescriptor));
   $pb.BuilderInfo get info_ => _i;
-  static BluetoothDescriptor create() => new BluetoothDescriptor();
+  @$core.pragma('dart2js:noInline')
+  static BluetoothDescriptor create() => BluetoothDescriptor._();
   BluetoothDescriptor createEmptyInstance() => create();
-  static $pb.PbList<BluetoothDescriptor> createRepeated() => new $pb.PbList<BluetoothDescriptor>();
+  static $pb.PbList<BluetoothDescriptor> createRepeated() => $pb.PbList<BluetoothDescriptor>();
   static BluetoothDescriptor getDefault() => _defaultInstance ??= create()..freeze();
   static BluetoothDescriptor _defaultInstance;
 
@@ -383,7 +403,7 @@ class BluetoothDescriptor extends $pb.GeneratedMessage {
 }
 
 class CharacteristicProperties extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('CharacteristicProperties')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('CharacteristicProperties')
     ..aOB(1, 'broadcast')
     ..aOB(2, 'read')
     ..aOB(3, 'writeWithoutResponse')
@@ -397,15 +417,17 @@ class CharacteristicProperties extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  CharacteristicProperties() : super();
-  CharacteristicProperties.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  CharacteristicProperties.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  CharacteristicProperties clone() => new CharacteristicProperties()..mergeFromMessage(this);
+  CharacteristicProperties._() : super();
+  factory CharacteristicProperties() => create();
+  factory CharacteristicProperties.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CharacteristicProperties.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  CharacteristicProperties clone() => CharacteristicProperties()..mergeFromMessage(this);
   CharacteristicProperties copyWith(void Function(CharacteristicProperties) updates) => super.copyWith((message) => updates(message as CharacteristicProperties));
   $pb.BuilderInfo get info_ => _i;
-  static CharacteristicProperties create() => new CharacteristicProperties();
+  @$core.pragma('dart2js:noInline')
+  static CharacteristicProperties create() => CharacteristicProperties._();
   CharacteristicProperties createEmptyInstance() => create();
-  static $pb.PbList<CharacteristicProperties> createRepeated() => new $pb.PbList<CharacteristicProperties>();
+  static $pb.PbList<CharacteristicProperties> createRepeated() => $pb.PbList<CharacteristicProperties>();
   static CharacteristicProperties getDefault() => _defaultInstance ??= create()..freeze();
   static CharacteristicProperties _defaultInstance;
 
@@ -461,21 +483,23 @@ class CharacteristicProperties extends $pb.GeneratedMessage {
 }
 
 class DiscoverServicesResult extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('DiscoverServicesResult')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('DiscoverServicesResult')
     ..aOS(1, 'remoteId')
     ..pc<BluetoothService>(2, 'services', $pb.PbFieldType.PM,BluetoothService.create)
     ..hasRequiredFields = false
   ;
 
-  DiscoverServicesResult() : super();
-  DiscoverServicesResult.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  DiscoverServicesResult.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  DiscoverServicesResult clone() => new DiscoverServicesResult()..mergeFromMessage(this);
+  DiscoverServicesResult._() : super();
+  factory DiscoverServicesResult() => create();
+  factory DiscoverServicesResult.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DiscoverServicesResult.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  DiscoverServicesResult clone() => DiscoverServicesResult()..mergeFromMessage(this);
   DiscoverServicesResult copyWith(void Function(DiscoverServicesResult) updates) => super.copyWith((message) => updates(message as DiscoverServicesResult));
   $pb.BuilderInfo get info_ => _i;
-  static DiscoverServicesResult create() => new DiscoverServicesResult();
+  @$core.pragma('dart2js:noInline')
+  static DiscoverServicesResult create() => DiscoverServicesResult._();
   DiscoverServicesResult createEmptyInstance() => create();
-  static $pb.PbList<DiscoverServicesResult> createRepeated() => new $pb.PbList<DiscoverServicesResult>();
+  static $pb.PbList<DiscoverServicesResult> createRepeated() => $pb.PbList<DiscoverServicesResult>();
   static DiscoverServicesResult getDefault() => _defaultInstance ??= create()..freeze();
   static DiscoverServicesResult _defaultInstance;
 
@@ -488,7 +512,7 @@ class DiscoverServicesResult extends $pb.GeneratedMessage {
 }
 
 class ReadCharacteristicRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('ReadCharacteristicRequest')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ReadCharacteristicRequest')
     ..aOS(1, 'remoteId')
     ..aOS(2, 'characteristicUuid')
     ..aOS(3, 'serviceUuid')
@@ -496,15 +520,17 @@ class ReadCharacteristicRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  ReadCharacteristicRequest() : super();
-  ReadCharacteristicRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  ReadCharacteristicRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  ReadCharacteristicRequest clone() => new ReadCharacteristicRequest()..mergeFromMessage(this);
+  ReadCharacteristicRequest._() : super();
+  factory ReadCharacteristicRequest() => create();
+  factory ReadCharacteristicRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReadCharacteristicRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  ReadCharacteristicRequest clone() => ReadCharacteristicRequest()..mergeFromMessage(this);
   ReadCharacteristicRequest copyWith(void Function(ReadCharacteristicRequest) updates) => super.copyWith((message) => updates(message as ReadCharacteristicRequest));
   $pb.BuilderInfo get info_ => _i;
-  static ReadCharacteristicRequest create() => new ReadCharacteristicRequest();
+  @$core.pragma('dart2js:noInline')
+  static ReadCharacteristicRequest create() => ReadCharacteristicRequest._();
   ReadCharacteristicRequest createEmptyInstance() => create();
-  static $pb.PbList<ReadCharacteristicRequest> createRepeated() => new $pb.PbList<ReadCharacteristicRequest>();
+  static $pb.PbList<ReadCharacteristicRequest> createRepeated() => $pb.PbList<ReadCharacteristicRequest>();
   static ReadCharacteristicRequest getDefault() => _defaultInstance ??= create()..freeze();
   static ReadCharacteristicRequest _defaultInstance;
 
@@ -530,21 +556,23 @@ class ReadCharacteristicRequest extends $pb.GeneratedMessage {
 }
 
 class ReadCharacteristicResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('ReadCharacteristicResponse')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ReadCharacteristicResponse')
     ..aOS(1, 'remoteId')
     ..a<BluetoothCharacteristic>(2, 'characteristic', $pb.PbFieldType.OM, BluetoothCharacteristic.getDefault, BluetoothCharacteristic.create)
     ..hasRequiredFields = false
   ;
 
-  ReadCharacteristicResponse() : super();
-  ReadCharacteristicResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  ReadCharacteristicResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  ReadCharacteristicResponse clone() => new ReadCharacteristicResponse()..mergeFromMessage(this);
+  ReadCharacteristicResponse._() : super();
+  factory ReadCharacteristicResponse() => create();
+  factory ReadCharacteristicResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReadCharacteristicResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  ReadCharacteristicResponse clone() => ReadCharacteristicResponse()..mergeFromMessage(this);
   ReadCharacteristicResponse copyWith(void Function(ReadCharacteristicResponse) updates) => super.copyWith((message) => updates(message as ReadCharacteristicResponse));
   $pb.BuilderInfo get info_ => _i;
-  static ReadCharacteristicResponse create() => new ReadCharacteristicResponse();
+  @$core.pragma('dart2js:noInline')
+  static ReadCharacteristicResponse create() => ReadCharacteristicResponse._();
   ReadCharacteristicResponse createEmptyInstance() => create();
-  static $pb.PbList<ReadCharacteristicResponse> createRepeated() => new $pb.PbList<ReadCharacteristicResponse>();
+  static $pb.PbList<ReadCharacteristicResponse> createRepeated() => $pb.PbList<ReadCharacteristicResponse>();
   static ReadCharacteristicResponse getDefault() => _defaultInstance ??= create()..freeze();
   static ReadCharacteristicResponse _defaultInstance;
 
@@ -560,7 +588,7 @@ class ReadCharacteristicResponse extends $pb.GeneratedMessage {
 }
 
 class ReadDescriptorRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('ReadDescriptorRequest')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ReadDescriptorRequest')
     ..aOS(1, 'remoteId')
     ..aOS(2, 'descriptorUuid')
     ..aOS(3, 'serviceUuid')
@@ -569,15 +597,17 @@ class ReadDescriptorRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  ReadDescriptorRequest() : super();
-  ReadDescriptorRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  ReadDescriptorRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  ReadDescriptorRequest clone() => new ReadDescriptorRequest()..mergeFromMessage(this);
+  ReadDescriptorRequest._() : super();
+  factory ReadDescriptorRequest() => create();
+  factory ReadDescriptorRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReadDescriptorRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  ReadDescriptorRequest clone() => ReadDescriptorRequest()..mergeFromMessage(this);
   ReadDescriptorRequest copyWith(void Function(ReadDescriptorRequest) updates) => super.copyWith((message) => updates(message as ReadDescriptorRequest));
   $pb.BuilderInfo get info_ => _i;
-  static ReadDescriptorRequest create() => new ReadDescriptorRequest();
+  @$core.pragma('dart2js:noInline')
+  static ReadDescriptorRequest create() => ReadDescriptorRequest._();
   ReadDescriptorRequest createEmptyInstance() => create();
-  static $pb.PbList<ReadDescriptorRequest> createRepeated() => new $pb.PbList<ReadDescriptorRequest>();
+  static $pb.PbList<ReadDescriptorRequest> createRepeated() => $pb.PbList<ReadDescriptorRequest>();
   static ReadDescriptorRequest getDefault() => _defaultInstance ??= create()..freeze();
   static ReadDescriptorRequest _defaultInstance;
 
@@ -608,21 +638,23 @@ class ReadDescriptorRequest extends $pb.GeneratedMessage {
 }
 
 class ReadDescriptorResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('ReadDescriptorResponse')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ReadDescriptorResponse')
     ..a<ReadDescriptorRequest>(1, 'request', $pb.PbFieldType.OM, ReadDescriptorRequest.getDefault, ReadDescriptorRequest.create)
     ..a<$core.List<$core.int>>(2, 'value', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
-  ReadDescriptorResponse() : super();
-  ReadDescriptorResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  ReadDescriptorResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  ReadDescriptorResponse clone() => new ReadDescriptorResponse()..mergeFromMessage(this);
+  ReadDescriptorResponse._() : super();
+  factory ReadDescriptorResponse() => create();
+  factory ReadDescriptorResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReadDescriptorResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  ReadDescriptorResponse clone() => ReadDescriptorResponse()..mergeFromMessage(this);
   ReadDescriptorResponse copyWith(void Function(ReadDescriptorResponse) updates) => super.copyWith((message) => updates(message as ReadDescriptorResponse));
   $pb.BuilderInfo get info_ => _i;
-  static ReadDescriptorResponse create() => new ReadDescriptorResponse();
+  @$core.pragma('dart2js:noInline')
+  static ReadDescriptorResponse create() => ReadDescriptorResponse._();
   ReadDescriptorResponse createEmptyInstance() => create();
-  static $pb.PbList<ReadDescriptorResponse> createRepeated() => new $pb.PbList<ReadDescriptorResponse>();
+  static $pb.PbList<ReadDescriptorResponse> createRepeated() => $pb.PbList<ReadDescriptorResponse>();
   static ReadDescriptorResponse getDefault() => _defaultInstance ??= create()..freeze();
   static ReadDescriptorResponse _defaultInstance;
 
@@ -638,7 +670,7 @@ class ReadDescriptorResponse extends $pb.GeneratedMessage {
 }
 
 class WriteCharacteristicRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('WriteCharacteristicRequest')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('WriteCharacteristicRequest')
     ..aOS(1, 'remoteId')
     ..aOS(2, 'characteristicUuid')
     ..aOS(3, 'serviceUuid')
@@ -648,15 +680,17 @@ class WriteCharacteristicRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  WriteCharacteristicRequest() : super();
-  WriteCharacteristicRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  WriteCharacteristicRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  WriteCharacteristicRequest clone() => new WriteCharacteristicRequest()..mergeFromMessage(this);
+  WriteCharacteristicRequest._() : super();
+  factory WriteCharacteristicRequest() => create();
+  factory WriteCharacteristicRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory WriteCharacteristicRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  WriteCharacteristicRequest clone() => WriteCharacteristicRequest()..mergeFromMessage(this);
   WriteCharacteristicRequest copyWith(void Function(WriteCharacteristicRequest) updates) => super.copyWith((message) => updates(message as WriteCharacteristicRequest));
   $pb.BuilderInfo get info_ => _i;
-  static WriteCharacteristicRequest create() => new WriteCharacteristicRequest();
+  @$core.pragma('dart2js:noInline')
+  static WriteCharacteristicRequest create() => WriteCharacteristicRequest._();
   WriteCharacteristicRequest createEmptyInstance() => create();
-  static $pb.PbList<WriteCharacteristicRequest> createRepeated() => new $pb.PbList<WriteCharacteristicRequest>();
+  static $pb.PbList<WriteCharacteristicRequest> createRepeated() => $pb.PbList<WriteCharacteristicRequest>();
   static WriteCharacteristicRequest getDefault() => _defaultInstance ??= create()..freeze();
   static WriteCharacteristicRequest _defaultInstance;
 
@@ -692,21 +726,23 @@ class WriteCharacteristicRequest extends $pb.GeneratedMessage {
 }
 
 class WriteCharacteristicResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('WriteCharacteristicResponse')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('WriteCharacteristicResponse')
     ..a<WriteCharacteristicRequest>(1, 'request', $pb.PbFieldType.OM, WriteCharacteristicRequest.getDefault, WriteCharacteristicRequest.create)
     ..aOB(2, 'success')
     ..hasRequiredFields = false
   ;
 
-  WriteCharacteristicResponse() : super();
-  WriteCharacteristicResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  WriteCharacteristicResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  WriteCharacteristicResponse clone() => new WriteCharacteristicResponse()..mergeFromMessage(this);
+  WriteCharacteristicResponse._() : super();
+  factory WriteCharacteristicResponse() => create();
+  factory WriteCharacteristicResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory WriteCharacteristicResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  WriteCharacteristicResponse clone() => WriteCharacteristicResponse()..mergeFromMessage(this);
   WriteCharacteristicResponse copyWith(void Function(WriteCharacteristicResponse) updates) => super.copyWith((message) => updates(message as WriteCharacteristicResponse));
   $pb.BuilderInfo get info_ => _i;
-  static WriteCharacteristicResponse create() => new WriteCharacteristicResponse();
+  @$core.pragma('dart2js:noInline')
+  static WriteCharacteristicResponse create() => WriteCharacteristicResponse._();
   WriteCharacteristicResponse createEmptyInstance() => create();
-  static $pb.PbList<WriteCharacteristicResponse> createRepeated() => new $pb.PbList<WriteCharacteristicResponse>();
+  static $pb.PbList<WriteCharacteristicResponse> createRepeated() => $pb.PbList<WriteCharacteristicResponse>();
   static WriteCharacteristicResponse getDefault() => _defaultInstance ??= create()..freeze();
   static WriteCharacteristicResponse _defaultInstance;
 
@@ -722,7 +758,7 @@ class WriteCharacteristicResponse extends $pb.GeneratedMessage {
 }
 
 class WriteDescriptorRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('WriteDescriptorRequest')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('WriteDescriptorRequest')
     ..aOS(1, 'remoteId')
     ..aOS(2, 'descriptorUuid')
     ..aOS(3, 'serviceUuid')
@@ -732,15 +768,17 @@ class WriteDescriptorRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  WriteDescriptorRequest() : super();
-  WriteDescriptorRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  WriteDescriptorRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  WriteDescriptorRequest clone() => new WriteDescriptorRequest()..mergeFromMessage(this);
+  WriteDescriptorRequest._() : super();
+  factory WriteDescriptorRequest() => create();
+  factory WriteDescriptorRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory WriteDescriptorRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  WriteDescriptorRequest clone() => WriteDescriptorRequest()..mergeFromMessage(this);
   WriteDescriptorRequest copyWith(void Function(WriteDescriptorRequest) updates) => super.copyWith((message) => updates(message as WriteDescriptorRequest));
   $pb.BuilderInfo get info_ => _i;
-  static WriteDescriptorRequest create() => new WriteDescriptorRequest();
+  @$core.pragma('dart2js:noInline')
+  static WriteDescriptorRequest create() => WriteDescriptorRequest._();
   WriteDescriptorRequest createEmptyInstance() => create();
-  static $pb.PbList<WriteDescriptorRequest> createRepeated() => new $pb.PbList<WriteDescriptorRequest>();
+  static $pb.PbList<WriteDescriptorRequest> createRepeated() => $pb.PbList<WriteDescriptorRequest>();
   static WriteDescriptorRequest getDefault() => _defaultInstance ??= create()..freeze();
   static WriteDescriptorRequest _defaultInstance;
 
@@ -776,21 +814,23 @@ class WriteDescriptorRequest extends $pb.GeneratedMessage {
 }
 
 class WriteDescriptorResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('WriteDescriptorResponse')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('WriteDescriptorResponse')
     ..a<WriteDescriptorRequest>(1, 'request', $pb.PbFieldType.OM, WriteDescriptorRequest.getDefault, WriteDescriptorRequest.create)
     ..aOB(2, 'success')
     ..hasRequiredFields = false
   ;
 
-  WriteDescriptorResponse() : super();
-  WriteDescriptorResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  WriteDescriptorResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  WriteDescriptorResponse clone() => new WriteDescriptorResponse()..mergeFromMessage(this);
+  WriteDescriptorResponse._() : super();
+  factory WriteDescriptorResponse() => create();
+  factory WriteDescriptorResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory WriteDescriptorResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  WriteDescriptorResponse clone() => WriteDescriptorResponse()..mergeFromMessage(this);
   WriteDescriptorResponse copyWith(void Function(WriteDescriptorResponse) updates) => super.copyWith((message) => updates(message as WriteDescriptorResponse));
   $pb.BuilderInfo get info_ => _i;
-  static WriteDescriptorResponse create() => new WriteDescriptorResponse();
+  @$core.pragma('dart2js:noInline')
+  static WriteDescriptorResponse create() => WriteDescriptorResponse._();
   WriteDescriptorResponse createEmptyInstance() => create();
-  static $pb.PbList<WriteDescriptorResponse> createRepeated() => new $pb.PbList<WriteDescriptorResponse>();
+  static $pb.PbList<WriteDescriptorResponse> createRepeated() => $pb.PbList<WriteDescriptorResponse>();
   static WriteDescriptorResponse getDefault() => _defaultInstance ??= create()..freeze();
   static WriteDescriptorResponse _defaultInstance;
 
@@ -806,7 +846,7 @@ class WriteDescriptorResponse extends $pb.GeneratedMessage {
 }
 
 class SetNotificationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('SetNotificationRequest')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('SetNotificationRequest')
     ..aOS(1, 'remoteId')
     ..aOS(2, 'serviceUuid')
     ..aOS(3, 'secondaryServiceUuid')
@@ -815,15 +855,17 @@ class SetNotificationRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false
   ;
 
-  SetNotificationRequest() : super();
-  SetNotificationRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  SetNotificationRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  SetNotificationRequest clone() => new SetNotificationRequest()..mergeFromMessage(this);
+  SetNotificationRequest._() : super();
+  factory SetNotificationRequest() => create();
+  factory SetNotificationRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SetNotificationRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  SetNotificationRequest clone() => SetNotificationRequest()..mergeFromMessage(this);
   SetNotificationRequest copyWith(void Function(SetNotificationRequest) updates) => super.copyWith((message) => updates(message as SetNotificationRequest));
   $pb.BuilderInfo get info_ => _i;
-  static SetNotificationRequest create() => new SetNotificationRequest();
+  @$core.pragma('dart2js:noInline')
+  static SetNotificationRequest create() => SetNotificationRequest._();
   SetNotificationRequest createEmptyInstance() => create();
-  static $pb.PbList<SetNotificationRequest> createRepeated() => new $pb.PbList<SetNotificationRequest>();
+  static $pb.PbList<SetNotificationRequest> createRepeated() => $pb.PbList<SetNotificationRequest>();
   static SetNotificationRequest getDefault() => _defaultInstance ??= create()..freeze();
   static SetNotificationRequest _defaultInstance;
 
@@ -854,22 +896,24 @@ class SetNotificationRequest extends $pb.GeneratedMessage {
 }
 
 class SetNotificationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('SetNotificationResponse')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('SetNotificationResponse')
     ..aOS(1, 'remoteId')
     ..a<BluetoothCharacteristic>(2, 'characteristic', $pb.PbFieldType.OM, BluetoothCharacteristic.getDefault, BluetoothCharacteristic.create)
     ..aOB(3, 'success')
     ..hasRequiredFields = false
   ;
 
-  SetNotificationResponse() : super();
-  SetNotificationResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  SetNotificationResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  SetNotificationResponse clone() => new SetNotificationResponse()..mergeFromMessage(this);
+  SetNotificationResponse._() : super();
+  factory SetNotificationResponse() => create();
+  factory SetNotificationResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SetNotificationResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  SetNotificationResponse clone() => SetNotificationResponse()..mergeFromMessage(this);
   SetNotificationResponse copyWith(void Function(SetNotificationResponse) updates) => super.copyWith((message) => updates(message as SetNotificationResponse));
   $pb.BuilderInfo get info_ => _i;
-  static SetNotificationResponse create() => new SetNotificationResponse();
+  @$core.pragma('dart2js:noInline')
+  static SetNotificationResponse create() => SetNotificationResponse._();
   SetNotificationResponse createEmptyInstance() => create();
-  static $pb.PbList<SetNotificationResponse> createRepeated() => new $pb.PbList<SetNotificationResponse>();
+  static $pb.PbList<SetNotificationResponse> createRepeated() => $pb.PbList<SetNotificationResponse>();
   static SetNotificationResponse getDefault() => _defaultInstance ??= create()..freeze();
   static SetNotificationResponse _defaultInstance;
 
@@ -890,21 +934,23 @@ class SetNotificationResponse extends $pb.GeneratedMessage {
 }
 
 class OnNotificationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('OnNotificationResponse')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('OnNotificationResponse')
     ..aOS(1, 'remoteId')
     ..a<BluetoothCharacteristic>(2, 'characteristic', $pb.PbFieldType.OM, BluetoothCharacteristic.getDefault, BluetoothCharacteristic.create)
     ..hasRequiredFields = false
   ;
 
-  OnNotificationResponse() : super();
-  OnNotificationResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  OnNotificationResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  OnNotificationResponse clone() => new OnNotificationResponse()..mergeFromMessage(this);
+  OnNotificationResponse._() : super();
+  factory OnNotificationResponse() => create();
+  factory OnNotificationResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory OnNotificationResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  OnNotificationResponse clone() => OnNotificationResponse()..mergeFromMessage(this);
   OnNotificationResponse copyWith(void Function(OnNotificationResponse) updates) => super.copyWith((message) => updates(message as OnNotificationResponse));
   $pb.BuilderInfo get info_ => _i;
-  static OnNotificationResponse create() => new OnNotificationResponse();
+  @$core.pragma('dart2js:noInline')
+  static OnNotificationResponse create() => OnNotificationResponse._();
   OnNotificationResponse createEmptyInstance() => create();
-  static $pb.PbList<OnNotificationResponse> createRepeated() => new $pb.PbList<OnNotificationResponse>();
+  static $pb.PbList<OnNotificationResponse> createRepeated() => $pb.PbList<OnNotificationResponse>();
   static OnNotificationResponse getDefault() => _defaultInstance ??= create()..freeze();
   static OnNotificationResponse _defaultInstance;
 
@@ -920,21 +966,23 @@ class OnNotificationResponse extends $pb.GeneratedMessage {
 }
 
 class DeviceStateResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('DeviceStateResponse')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('DeviceStateResponse')
     ..aOS(1, 'remoteId')
     ..e<DeviceStateResponse_BluetoothDeviceState>(2, 'state', $pb.PbFieldType.OE, DeviceStateResponse_BluetoothDeviceState.DISCONNECTED, DeviceStateResponse_BluetoothDeviceState.valueOf, DeviceStateResponse_BluetoothDeviceState.values)
     ..hasRequiredFields = false
   ;
 
-  DeviceStateResponse() : super();
-  DeviceStateResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  DeviceStateResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  DeviceStateResponse clone() => new DeviceStateResponse()..mergeFromMessage(this);
+  DeviceStateResponse._() : super();
+  factory DeviceStateResponse() => create();
+  factory DeviceStateResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DeviceStateResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  DeviceStateResponse clone() => DeviceStateResponse()..mergeFromMessage(this);
   DeviceStateResponse copyWith(void Function(DeviceStateResponse) updates) => super.copyWith((message) => updates(message as DeviceStateResponse));
   $pb.BuilderInfo get info_ => _i;
-  static DeviceStateResponse create() => new DeviceStateResponse();
+  @$core.pragma('dart2js:noInline')
+  static DeviceStateResponse create() => DeviceStateResponse._();
   DeviceStateResponse createEmptyInstance() => create();
-  static $pb.PbList<DeviceStateResponse> createRepeated() => new $pb.PbList<DeviceStateResponse>();
+  static $pb.PbList<DeviceStateResponse> createRepeated() => $pb.PbList<DeviceStateResponse>();
   static DeviceStateResponse getDefault() => _defaultInstance ??= create()..freeze();
   static DeviceStateResponse _defaultInstance;
 
