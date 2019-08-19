@@ -26,6 +26,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.ParcelUuid;
 import android.util.Log;
 
@@ -38,6 +40,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import io.flutter.plugin.common.EventChannel;
@@ -776,7 +779,7 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
                     gatt.close();
                 }
             }
-            channel.invokeMethod("DeviceState", ProtoMaker.from(gatt.getDevice(), newState).toByteArray());
+            callChannelMethod("DeviceState", ProtoMaker.from(gatt.getDevice(), newState).toByteArray());
         }
 
         @Override
@@ -788,7 +791,7 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
                 for(BluetoothGattService s : gatt.getServices()) {
                     p.addServices(ProtoMaker.from(gatt.getDevice(), s, gatt));
                 }
-                servicesDiscoveredSink.success(p.build().toByteArray());
+                callSinkSuccess(servicesDiscoveredSink, p.build().toByteArray());
             }
         }
 
@@ -799,7 +802,7 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
                 Protos.ReadCharacteristicResponse.Builder p = Protos.ReadCharacteristicResponse.newBuilder();
                 p.setRemoteId(gatt.getDevice().getAddress());
                 p.setCharacteristic(ProtoMaker.from(characteristic, gatt));
-                characteristicReadSink.success(p.build().toByteArray());
+                callSinkSuccess(characteristicReadSink, p.build().toByteArray());
             }
         }
 
@@ -813,7 +816,7 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
             Protos.WriteCharacteristicResponse.Builder p = Protos.WriteCharacteristicResponse.newBuilder();
             p.setRequest(request);
             p.setSuccess(status == BluetoothGatt.GATT_SUCCESS);
-            channel.invokeMethod("WriteCharacteristicResponse", p.build().toByteArray());
+            callChannelMethod("WriteCharacteristicResponse", p.build().toByteArray());
         }
 
         @Override
@@ -822,7 +825,7 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
             Protos.OnNotificationResponse.Builder p = Protos.OnNotificationResponse.newBuilder();
             p.setRemoteId(gatt.getDevice().getAddress());
             p.setCharacteristic(ProtoMaker.from(characteristic, gatt));
-            channel.invokeMethod("OnValueChanged", p.build().toByteArray());
+            callChannelMethod("OnValueChanged", p.build().toByteArray());
         }
 
         @Override
@@ -854,9 +857,8 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
                 byte[] value = descriptor.getValue();
                 p.setValue(ByteString.copyFrom(value == null ? new byte[0] : value));
 
-                descriptorReadSink.success(p.build().toByteArray());
+                callSinkSuccess(descriptorReadSink, p.build().toByteArray());
             }
-
         }
 
         @Override
@@ -870,14 +872,14 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
             Protos.WriteDescriptorResponse.Builder p = Protos.WriteDescriptorResponse.newBuilder();
             p.setRequest(request);
             p.setSuccess(status == BluetoothGatt.GATT_SUCCESS);
-            channel.invokeMethod("WriteDescriptorResponse", p.build().toByteArray());
+            callChannelMethod("WriteDescriptorResponse", p.build().toByteArray());
 
             if(descriptor.getUuid().compareTo(CCCD_ID) == 0) {
                 // SetNotificationResponse
                 Protos.SetNotificationResponse.Builder q = Protos.SetNotificationResponse.newBuilder();
                 q.setRemoteId(gatt.getDevice().getAddress());
                 q.setCharacteristic(ProtoMaker.from(descriptor.getCharacteristic(), gatt));
-                channel.invokeMethod("SetNotificationResponse", q.build().toByteArray());
+                callChannelMethod("SetNotificationResponse", q.build().toByteArray());
             }
         }
 
@@ -908,4 +910,31 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
         }
     }
 
+    private void callSinkSuccess(final EventSink sink, final byte[] data) {
+
+        handler.get().post(new Runnable() {
+            @Override
+            public void run() {
+                sink.success(data);
+            }
+        });
+    }
+
+    private void callChannelMethod(final String name, final byte[] byteArray) {
+
+        handler.get().post(new Runnable() {
+            @Override
+            public void run() {
+                channel.invokeMethod(name, byteArray);
+            }
+        });
+    }
+
+    private static final ThreadLocal<Handler> handler = new ThreadLocal<Handler>() {
+        @Nullable
+        @Override
+        protected Handler initialValue() {
+            return new Handler(Looper.getMainLooper());
+        }
+    };
 }
