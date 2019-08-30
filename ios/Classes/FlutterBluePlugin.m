@@ -45,6 +45,10 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
 @property(nonatomic) NSString *uniqueId;
 @end
 
+@interface StateStreamHandler : FlutterBlueStreamHandler
+@property(nonatomic, weak) FlutterBluePlugin *flutterBlue;
+@end
+
 @implementation FlutterBluePlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
@@ -63,7 +67,8 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
   instance.logLevel = emergency;
   
   // STATE
-  FlutterBlueStreamHandler* stateStreamHandler = [[FlutterBlueStreamHandler alloc] init];
+  StateStreamHandler* stateStreamHandler = [[StateStreamHandler alloc] init];
+  stateStreamHandler.flutterBlue = instance;
   [stateChannel setStreamHandler:stateStreamHandler];
   instance.stateStreamHandler = stateStreamHandler;
   
@@ -776,3 +781,13 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
 
 @end
 
+@implementation StateStreamHandler
+
+- (FlutterError*)onListenWithArguments:(id)arguments eventSink:(FlutterEventSink)eventSink {
+    [super onListenWithArguments:arguments eventSink:eventSink];
+    // Make sure centralManager has been initialized. Otherwise the listener doesn't status events unless some other method, that needs centralManager, is called.
+    [self.flutterBlue centralManager];
+    return nil;
+}
+
+@end
