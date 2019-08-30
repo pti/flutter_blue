@@ -29,6 +29,8 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
   debug = 7
 };
 
+typedef void (^StateCallback)(CBManagerState state);
+
 @interface FlutterBluePlugin ()
 @property(nonatomic, retain) NSObject<FlutterPluginRegistrar> *registrar;
 @property(nonatomic, retain) FlutterMethodChannel *channel;
@@ -43,6 +45,7 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
 @property(nonatomic) NSMutableArray *characteristicsThatNeedDiscovered;
 @property(nonatomic) LogLevel logLevel;
 @property(nonatomic) NSString *uniqueId;
+@property(nonatomic) NSMutableArray *pendingStateCallbacks;
 @end
 
 @interface StateStreamHandler : FlutterBlueStreamHandler
@@ -65,6 +68,7 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
   instance.servicesThatNeedDiscovered = [NSMutableArray new];
   instance.characteristicsThatNeedDiscovered = [NSMutableArray new];
   instance.logLevel = emergency;
+  instance.pendingStateCallbacks = [NSMutableArray new];
   
   // STATE
   StateStreamHandler* stateStreamHandler = [[StateStreamHandler alloc] init];
@@ -103,6 +107,20 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
   return _centralManager;
 }
 
+- (void)handleStateRelatedCall:(StateCallback)cb {
+  // According to the CBCentralManagerState.unknown documentation "The current state of the central manager is unknown; an update is imminent.".
+  // Assuming this also applies to CBManagerState.unknown (no description provided).
+  // => instead of returning the unknown value immediately wait until centralManagerDidUpdateState: gets called with a 'valid' value.
+  // This way the behavior should be similar as on Android and on the Flutter level one doesn't need to do platform specific handling.
+  CBManagerState state = self.centralManager.state;
+    
+  if (state == CBManagerStateUnknown) {
+    [self.pendingStateCallbacks addObject:cb];
+  } else {
+    cb(state);
+  }
+}
+
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"setLogLevel" isEqualToString:call.method]) {
     NSNumber *logLevelIndex = [call arguments];
@@ -116,20 +134,25 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
       result(@(NO));
     }
   } else if ([@"state" isEqualToString:call.method]) {
-    FlutterStandardTypedData *data = [self toFlutterData:[self toBluetoothStateProto:self.centralManager.state]];
-    result(data);
+    [self handleStateRelatedCall:^void (CBManagerState state) {
+      result([self toFlutterData:[self toBluetoothStateProto:state]]);
+    }];
   } else if([@"isAvailable" isEqualToString:call.method]) {
-    if(self.centralManager.state != CBManagerStateUnsupported && self.centralManager.state != CBManagerStateUnknown) {
-      result(@(YES));
-    } else {
-      result(@(NO));
-    }
+    [self handleStateRelatedCall:^void (CBManagerState state) {
+      if(state != CBManagerStateUnsupported && state != CBManagerStateUnknown) {
+        result(@(YES));
+      } else {
+        result(@(NO));
+      }
+    }];
   } else if([@"isOn" isEqualToString:call.method]) {
-    if(self.centralManager.state == CBManagerStatePoweredOn) {
-      result(@(YES));
-    } else {
-      result(@(NO));
-    }
+    [self handleStateRelatedCall:^void (CBManagerState state) {
+      if(state == CBManagerStatePoweredOn) {
+        result(@(YES));
+      } else {
+        result(@(NO));
+      }
+    }];
   } else if([@"startScan" isEqualToString:call.method]) {
     // Clear any existing scan results
     [self.scannedPeripherals removeAllObjects];
@@ -396,6 +419,18 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
 // CBCentralManagerDelegate methods
 //
 - (void)centralManagerDidUpdateState:(nonnull CBCentralManager *)central {
+    
+  if(_pendingStateCallbacks.count > 0) {
+    CBManagerState state = self.centralManager.state;
+    
+    for (StateCallback cb in _pendingStateCallbacks) {
+      NSLog(@"centralManagerDidUpdateState: delayed state result call");
+      cb(state);
+    }
+      
+    [_pendingStateCallbacks removeAllObjects];
+  }
+    
   if(_stateStreamHandler.sink != nil) {
     FlutterStandardTypedData *data = [self toFlutterData:[self toBluetoothStateProto:self.centralManager.state]];
     self.stateStreamHandler.sink(data);
@@ -784,10 +819,10 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
 @implementation StateStreamHandler
 
 - (FlutterError*)onListenWithArguments:(id)arguments eventSink:(FlutterEventSink)eventSink {
-    [super onListenWithArguments:arguments eventSink:eventSink];
-    // Make sure centralManager has been initialized. Otherwise the listener doesn't status events unless some other method, that needs centralManager, is called.
-    [self.flutterBlue centralManager];
-    return nil;
+  [super onListenWithArguments:arguments eventSink:eventSink];
+  // Make sure centralManager has been initialized. Otherwise the listener doesn't status events unless some other method, that needs centralManager, is called.
+  [self.flutterBlue centralManager];
+  return nil;
 }
 
 @end
