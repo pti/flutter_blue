@@ -49,7 +49,18 @@ class Guid {
       throw new ArgumentError("Input was null");
     }
     if (input.length < 32) {
-      throw new FormatException("The format is invalid");
+      // Convert a 16/32-bit UUID to a full 128-bit UUID.
+      const baseUuid = "00000000-0000-1000-8000-00805f9b34fb";
+
+      if (input.length == 4) {
+        input = baseUuid.replaceRange(4, 8, input);
+
+      } else if (input.length == 8) {
+        input = baseUuid.replaceRange(0, 8, input);
+
+      } else {
+        throw new FormatException("The format is invalid");
+      }
     }
     input = input.toLowerCase();
 
