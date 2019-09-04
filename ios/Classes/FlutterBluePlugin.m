@@ -11,10 +11,15 @@
 
 @implementation CBUUID (CBUUIDAdditionsFlutterBlue)
 - (NSString *)fullUUIDString {
-  if(self.UUIDString.length == 4) {
-    return [[NSString stringWithFormat:@"0000%@-0000-1000-8000-00805F9B34FB", self.UUIDString] lowercaseString];
+  NSString* uuid = self.UUIDString;
+
+  if(uuid.length == 4) {
+    uuid = [NSString stringWithFormat:@"0000%@-0000-1000-8000-00805f9b34fb", uuid];
+  } else if(uuid.length == 8) {
+    uuid = [NSString stringWithFormat:@"%@-0000-1000-8000-00805f9b34fb", uuid];
   }
-  return [self.UUIDString lowercaseString];
+
+  return [uuid lowercaseString];
 }
 @end
 
@@ -665,14 +670,15 @@ typedef void (^StateCallback)(CBManagerState state);
     [[ads manufacturerData] setObject:[manufData subdataWithRange:NSMakeRange(2, manufData.length - 2)] forKey:manufacturerId];
   }
   // Service Data
+  // Use full / 128-bit service UUIDs so that on the Flutter level UUIDs are of the same format on both platforms.
   NSDictionary *serviceData = advertisementData[CBAdvertisementDataServiceDataKey];
   for (CBUUID *uuid in serviceData) {
-    [[ads serviceData] setObject:serviceData[uuid] forKey:uuid.UUIDString];
+    [[ads serviceData] setObject:serviceData[uuid] forKey:uuid.fullUUIDString];
   }
   // Service Uuids
   NSArray *serviceUuids = advertisementData[CBAdvertisementDataServiceUUIDsKey];
   for (CBUUID *uuid in serviceUuids) {
-    [[ads serviceUuidsArray] addObject:uuid.UUIDString];
+    [[ads serviceUuidsArray] addObject:uuid.fullUUIDString];
   }
   [result setAdvertisementData:ads];
   return result;
