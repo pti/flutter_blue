@@ -664,8 +664,14 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
         List<ScanFilter> filters = new ArrayList<>(count);
         for(int i = 0; i < count; i++) {
             String uuid = proto.getServiceUuids(i);
-            ScanFilter f = new ScanFilter.Builder().setServiceUuid(ParcelUuid.fromString(uuid)).build();
-            filters.add(f);
+            ParcelUuid pu = ParcelUuid.fromString(uuid);
+            // serviceUuid filter maps to advertising data element 0x03 Complete List of 16-bit Service Class UUID
+            // whereas serviceData maps to 0x16 Service Data. Two different elements and two different
+            // filters - makes sense. However, on iOS scanForPeripheralsWithServices function only
+            // allows defining a single serviceUUIDs list and it seems to be used for both elements.
+            // => create both filters so that scanning would behave the same on both platforms.
+            filters.add(new ScanFilter.Builder().setServiceUuid(pu).build());
+            filters.add(new ScanFilter.Builder().setServiceData(pu, new byte[0]).build());
         }
 
         for(String deviceId: proto.getAddressesList()) {
