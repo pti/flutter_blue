@@ -524,7 +524,6 @@ typedef void (^StateCallback)(CBManagerState state);
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-  NSLog(@"didUpdateValueForCharacteristic %@", [peripheral.identifier UUIDString]);
   if(_characteristicReadStreamHandler.sink != nil) {
     ProtosReadCharacteristicResponse *result = [[ProtosReadCharacteristicResponse alloc] init];
     [result setRemoteId:[peripheral.identifier UUIDString]];
@@ -753,7 +752,6 @@ typedef void (^StateCallback)(CBManagerState state);
   [result setUuid:[characteristic.UUID fullUUIDString]];
   [result setProperties:[self toCharacteristicPropsProto:characteristic.properties]];
   [result setValue:[characteristic value]];
-  NSLog(@"uuid: %@ value: %@", [characteristic.UUID fullUUIDString], [characteristic value]);
   NSMutableArray *descriptorProtos = [NSMutableArray new];
   for(CBDescriptor *d in [characteristic descriptors]) {
     [descriptorProtos addObject:[self toDescriptorProto:d]];
