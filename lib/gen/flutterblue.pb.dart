@@ -1367,3 +1367,54 @@ class DeviceStateResponse extends $pb.GeneratedMessage {
   void clearState() => clearField(2);
 }
 
+class ReadRssiResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ReadRssiResponse', createEmptyInstance: create)
+    ..aOS(1, 'remoteId')
+    ..aOB(2, 'success')
+    ..a<$core.int>(3, 'rssi', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  ReadRssiResponse._() : super();
+  factory ReadRssiResponse() => create();
+  factory ReadRssiResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReadRssiResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  ReadRssiResponse clone() => ReadRssiResponse()..mergeFromMessage(this);
+  ReadRssiResponse copyWith(void Function(ReadRssiResponse) updates) => super.copyWith((message) => updates(message as ReadRssiResponse));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ReadRssiResponse create() => ReadRssiResponse._();
+  ReadRssiResponse createEmptyInstance() => create();
+  static $pb.PbList<ReadRssiResponse> createRepeated() => $pb.PbList<ReadRssiResponse>();
+  @$core.pragma('dart2js:noInline')
+  static ReadRssiResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ReadRssiResponse>(create);
+  static ReadRssiResponse _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get remoteId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set remoteId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasRemoteId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRemoteId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get success => $_getBF(1);
+  @$pb.TagNumber(2)
+  set success($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSuccess() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSuccess() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get rssi => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set rssi($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRssi() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRssi() => clearField(3);
+}
+

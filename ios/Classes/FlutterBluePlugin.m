@@ -316,6 +316,15 @@ typedef void (^StateCallback)(CBManagerState state);
     } @catch(FlutterError *e) {
       result(e);
     }
+  } else if([@"readRssi" isEqualToString:call.method]) {
+    @try {
+      NSString *remoteId = [call arguments];
+      CBPeripheral *peripheral = [self findPeripheral:remoteId];
+      [peripheral readRSSI];
+      result(nil);
+    } @catch(FlutterError *e) {
+      result(e);
+    }
   } else {
     result(FlutterMethodNotImplemented);
   }
@@ -612,6 +621,14 @@ typedef void (^StateCallback)(CBManagerState state);
   [result setRequest:request];
   [result setSuccess:(error == nil)];
   [_channel invokeMethod:@"WriteDescriptorResponse" arguments:[self toFlutterData:result]];
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didReadRSSI:(NSNumber *)rssi error:(NSError *)error {
+  ProtosReadRssiResponse *response = [[ProtosReadRssiResponse alloc] init];
+  [response setRemoteId:[peripheral.identifier UUIDString]];
+  [response setRssi:[rssi intValue]];
+  [response setSuccess:(error == nil)];
+  [_channel invokeMethod:@"ReadRssiResponse" arguments:[self toFlutterData:response]];
 }
 
 //

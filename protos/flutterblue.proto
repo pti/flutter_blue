@@ -198,3 +198,9 @@ message DeviceStateResponse {
   string remote_id = 1;
   BluetoothDeviceState state = 2;
 }
+
+message ReadRssiResponse {
+  string remote_id = 1;
+  bool success = 2;
+  int32 rssi = 3;
+}

@@ -8,7 +8,7 @@
 #endif
 
 #if GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS
- #import <Protobuf/GPBProtocolBuffers.h>
+ #import <protobuf/GPBProtocolBuffers.h>
 #else
  #import "GPBProtocolBuffers.h"
 #endif
@@ -737,6 +737,24 @@ int32_t ProtosDeviceStateResponse_State_RawValue(ProtosDeviceStateResponse *mess
  * was generated.
  **/
 void SetProtosDeviceStateResponse_State_RawValue(ProtosDeviceStateResponse *message, int32_t value);
+
+#pragma mark - ProtosReadRssiResponse
+
+typedef GPB_ENUM(ProtosReadRssiResponse_FieldNumber) {
+  ProtosReadRssiResponse_FieldNumber_RemoteId = 1,
+  ProtosReadRssiResponse_FieldNumber_Success = 2,
+  ProtosReadRssiResponse_FieldNumber_Rssi = 3,
+};
+
+@interface ProtosReadRssiResponse : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *remoteId;
+
+@property(nonatomic, readwrite) BOOL success;
+
+@property(nonatomic, readwrite) int32_t rssi;
+
+@end
 
 NS_ASSUME_NONNULL_END
 
