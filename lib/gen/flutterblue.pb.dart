@@ -1418,3 +1418,85 @@ class ReadRssiResponse extends $pb.GeneratedMessage {
   void clearRssi() => clearField(3);
 }
 
+class MtuSizeRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('MtuSizeRequest', createEmptyInstance: create)
+    ..aOS(1, 'remoteId')
+    ..a<$core.int>(2, 'mtu', $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false
+  ;
+
+  MtuSizeRequest._() : super();
+  factory MtuSizeRequest() => create();
+  factory MtuSizeRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory MtuSizeRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  MtuSizeRequest clone() => MtuSizeRequest()..mergeFromMessage(this);
+  MtuSizeRequest copyWith(void Function(MtuSizeRequest) updates) => super.copyWith((message) => updates(message as MtuSizeRequest));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static MtuSizeRequest create() => MtuSizeRequest._();
+  MtuSizeRequest createEmptyInstance() => create();
+  static $pb.PbList<MtuSizeRequest> createRepeated() => $pb.PbList<MtuSizeRequest>();
+  @$core.pragma('dart2js:noInline')
+  static MtuSizeRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MtuSizeRequest>(create);
+  static MtuSizeRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get remoteId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set remoteId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasRemoteId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRemoteId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get mtu => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set mtu($core.int v) { $_setUnsignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMtu() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMtu() => clearField(2);
+}
+
+class MtuSizeResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('MtuSizeResponse', createEmptyInstance: create)
+    ..aOS(1, 'remoteId')
+    ..a<$core.int>(2, 'mtu', $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false
+  ;
+
+  MtuSizeResponse._() : super();
+  factory MtuSizeResponse() => create();
+  factory MtuSizeResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory MtuSizeResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  MtuSizeResponse clone() => MtuSizeResponse()..mergeFromMessage(this);
+  MtuSizeResponse copyWith(void Function(MtuSizeResponse) updates) => super.copyWith((message) => updates(message as MtuSizeResponse));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static MtuSizeResponse create() => MtuSizeResponse._();
+  MtuSizeResponse createEmptyInstance() => create();
+  static $pb.PbList<MtuSizeResponse> createRepeated() => $pb.PbList<MtuSizeResponse>();
+  @$core.pragma('dart2js:noInline')
+  static MtuSizeResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MtuSizeResponse>(create);
+  static MtuSizeResponse _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get remoteId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set remoteId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasRemoteId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRemoteId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get mtu => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set mtu($core.int v) { $_setUnsignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMtu() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMtu() => clearField(2);
+}
+

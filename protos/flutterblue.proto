@@ -204,3 +204,13 @@ message ReadRssiResponse {
   bool success = 2;
   int32 rssi = 3;
 }
+
+message MtuSizeRequest {
+  string remote_id = 1;
+  uint32 mtu = 2;
+}
+
+message MtuSizeResponse {
+  string remote_id = 1;
+  uint32 mtu = 2;
+}

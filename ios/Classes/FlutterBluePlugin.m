@@ -325,6 +325,17 @@ typedef void (^StateCallback)(CBManagerState state);
     } @catch(FlutterError *e) {
       result(e);
     }
+  } else if([@"mtu" isEqualToString:call.method]) {
+    NSString *remoteId = [call arguments];
+    @try {
+      CBPeripheral *peripheral = [self findPeripheral:remoteId];
+      uint32_t mtu = [self getMtu:peripheral];
+      result([self toFlutterData:[self toMtuSizeResponseProto:peripheral mtu:mtu]]);
+    } @catch(FlutterError *e) {
+      result(e);
+    }
+  } else if([@"requestMtu" isEqualToString:call.method]) {
+    result([FlutterError errorWithCode:@"requestMtu" message:@"iOS does not allow mtu requests to the peripheral" details:NULL]);
   } else {
     result(FlutterMethodNotImplemented);
   }
@@ -468,6 +479,10 @@ typedef void (^StateCallback)(CBManagerState state);
   NSLog(@"didConnectPeripheral");
   // Register self as delegate for peripheral
   peripheral.delegate = self;
+
+  // Send initial mtu size
+  uint32_t mtu = [self getMtu:peripheral];
+  [_channel invokeMethod:@"MtuSize" arguments:[self toFlutterData:[self toMtuSizeResponseProto:peripheral mtu:mtu]]];
   
   // Send connection state
   [_channel invokeMethod:@"DeviceState" arguments:[self toFlutterData:[self toDeviceStateProto:peripheral state:peripheral.state]]];
@@ -491,6 +506,10 @@ typedef void (^StateCallback)(CBManagerState state);
 //
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
   NSLog(@"didDiscoverServices");
+  // Send negotiated mtu size
+  uint32_t mtu = [self getMtu:peripheral];
+  [_channel invokeMethod:@"MtuSize" arguments:[self toFlutterData:[self toMtuSizeResponseProto:peripheral mtu:mtu]]];
+
   // Loop through and discover characteristics and secondary services
   [_servicesThatNeedDiscovered addObjectsFromArray:peripheral.services];
   for(CBService *s in [peripheral services]) {
@@ -810,6 +829,12 @@ typedef void (^StateCallback)(CBManagerState state);
   return result;
 }
 
+- (ProtosMtuSizeResponse*)toMtuSizeResponseProto:(CBPeripheral *)peripheral mtu:(uint32_t)mtu {
+  ProtosMtuSizeResponse *result = [[ProtosMtuSizeResponse alloc] init];
+  [result setRemoteId:[[peripheral identifier] UUIDString]];
+  [result setMtu:mtu];
+  return result;
+}
 
 - (void)log:(LogLevel)level format:(NSString *)format, ... {
   if(level <= _logLevel) {
@@ -818,6 +843,16 @@ typedef void (^StateCallback)(CBManagerState state);
 //    NSString* formattedMessage = [[NSString alloc] initWithFormat:format arguments:args];
     NSLog(format, args);
     va_end(args);
+  }
+}
+
+- (uint32_t)getMtu:(CBPeripheral *)peripheral {
+  if (@available(iOS 9.0, *)) {
+    // Which type should we use? (issue #365)
+    return (uint32_t)[peripheral maximumWriteValueLengthForType:CBCharacteristicWriteWithoutResponse];
+  } else {
+    // Fallback to minimum on earlier versions. (issue #364)
+    return 20;
   }
 }
 
